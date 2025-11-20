@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Secure{% endblock %}
+{% block content %}
+    <h2>Welcome, {{ username }}!</h2>
+    <p>You are securely logged in to the dashboard.</p>
+    <div style="margin-top: 20px; padding: 15px; background: #e6ffe6; border-radius: 5px;">
+        <h3>Security Features Active:</h3>
+        <ul>
+            <li>Session encryption enabled</li>
+            <li>CSRF protection active</li>
+            <li>Secure cookie settings</li>
+            <li>Password hashed with bcrypt</li>
+        </ul>
+    </div>
+{% endblock %}

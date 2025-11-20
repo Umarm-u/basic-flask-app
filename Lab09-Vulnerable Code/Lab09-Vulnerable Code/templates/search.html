@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Search Contacts{% endblock %}
+{% block content %}
+    <h2>Search Contacts</h2>
+    <form method="GET">
+        <div class="form-group">
+            <input type="text" name="q" placeholder="Search by name or email..." value="{{ search_term|safe }}">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+    {% if results %}
+        <h3>Results:</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background: #f0f0f0;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">Name</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">Email</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">{{ result[1]|safe }}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">{{ result[2]|safe }}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">{{ result[5]|safe }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
